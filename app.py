@@ -11,8 +11,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 
-os.environ["OPENAI_API_KEY"] = "TYPE OPENAI_API KEY"
-api_key = os.getenv("OPENAI_API_KEY")
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv()) # read local .env file
+api_key = os.environ['OPENAI_API_KEY']
 
 def get_pdf_text(pdf_docs):
     text = ""
